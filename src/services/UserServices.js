@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const base_url = "https://cinta-negra-b43.herokuapp.com/api/v1";
+const base_url = "https://nutrizens.herokuapp.com/api/v1";
 const token = `myapp ${localStorage.getItem('token')}`
 
 export async function getUsers() {

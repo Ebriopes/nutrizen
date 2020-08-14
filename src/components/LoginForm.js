@@ -7,10 +7,11 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
+import {Link} from 'react-router-dom';
 
 function LoginForm({ onSubmit, onType }) {
   return (
-    <Grid item xs={12} md={6} lg={4}>
+    <Grid item xs={12} sm={8} md={6} lg={4}>
       <Card>
         <Box p={3}>
           <Typography variant="h5" color="initial">
@@ -37,8 +38,11 @@ function LoginForm({ onSubmit, onType }) {
             color="primary"
             fullWidth
           >
-            Iniciar Sesión
+            entrar
           </Button>
+          <Typography style={{textAlign: "center"}}>
+            No tienes cuenta? <Link to='/register'>registrate</Link>
+          </Typography>
         </Box>
       </Card>
     </Grid>

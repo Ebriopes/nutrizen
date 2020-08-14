@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import RegisterForm from "../components/RegisterForm";
 import { registerUser } from "../services/UserServices";
 import Grid from "@material-ui/core/Grid";
+import {useHistory} from 'react-router-dom'
+import { AuthContext } from "../context/AuthContext";
 
 function RegisterView(props) {
-
+  const history = useHistory();
+  const token = useContext(AuthContext)
   const [user, setUser] = useState({
     name: '',
     last_name: '',
@@ -50,6 +53,7 @@ function RegisterView(props) {
 
   return (
     <Grid container justify="center">
+      {!token.token ? console.info('No token'): history.push('/home') }
       <RegisterForm onSubmit={onSubmit} onType={onType} />
     </Grid>
   );

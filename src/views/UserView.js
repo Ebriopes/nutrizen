@@ -23,6 +23,7 @@ function UserView(props) {
   };
 
   const renderUsers = () => {
+    console.log(state.users)
     if (state.users.length <= 0) {
       return <h3>Cargando usuarios...</h3>;
     } else {
@@ -33,7 +34,6 @@ function UserView(props) {
   };
 
   const verifyUser = ()=>{
-    console.log(token)
     return token ? renderUsers() : props.history.push('/login');
   }
 

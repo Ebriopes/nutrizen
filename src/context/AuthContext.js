@@ -1,6 +1,6 @@
 import React, { useState, createContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import decode from 'jwt-decode'
+import decode from 'jwt-decode';
 
 export const AuthContext = createContext();
 
@@ -18,8 +18,6 @@ const AuthContextProvider = (props) => {
         email: decodedToken.email,
         name: decodedToken.name,
       }
-      console.log(encodedToken)
-      console.log(userData)
       setUser(userData);
       setToken(encodedToken);
     }
@@ -28,7 +26,7 @@ const AuthContextProvider = (props) => {
   const setAuthToken= (token) => {
     localStorage.setItem("token", token);
     setToken(token);
-    return history.push("/users");
+    return history.push("/home");
   };
 
   const removeToken = () => {
