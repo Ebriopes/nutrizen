@@ -1,10 +1,13 @@
 import React, { useState, useContext } from "react";
+import {useHistory} from 'react-router-dom';
 import { loginUser } from "../services/UserServices";
 import LoginForm from "../components/LoginForm";
 import { Grid } from "@material-ui/core";
 import { AuthContext } from "../context/AuthContext";
 
 function LoginView() {
+  const history = useHistory();
+  const token = useContext(AuthContext);
   const { setAuthToken } = useContext(AuthContext);
   const [user, setUser] = useState({
     email: "",
@@ -38,7 +41,8 @@ function LoginView() {
   };
 
   return (
-    <Grid container justify="center">
+    <Grid container justify="center" style={{marginTop: "5vh"}} >
+      {!token.token ? <></>: history.push('/home') }
       <LoginForm onSubmit={onSubmit} onType={onType} />
     </Grid>
   );

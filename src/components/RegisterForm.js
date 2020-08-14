@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import {
   TextField,
   Grid,
@@ -10,7 +11,7 @@ import {
 
 function RegisterForm({ onSubmit, onType }) {
   return (
-    <Grid item xs={12} md={6} lg={4}>
+    <Grid item xs={12} sm={8} md={6} lg={4}>
       <Card>
         <Box p={3}>
           <Typography variant="h5" color="initial">
@@ -51,6 +52,9 @@ function RegisterForm({ onSubmit, onType }) {
           >
             Registrarse
           </Button>
+          <Typography style={{textAlign: "center"}}>
+            Ya tienes cuenta? <Link to='/login'>ingresa desde aquí</Link>
+          </Typography>
         </Box>
       </Card>
     </Grid>

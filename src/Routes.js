@@ -1,18 +1,20 @@
-import React, { Fragment } from "react"
+import React, { Fragment, } from "react"
 import { Route, Redirect } from "react-router-dom"
-import UserView from "./Views/UserView"
+//import UserView from "./Views/UserView"
 import RegisterView from "./Views/RegisterView"
 import LoginView from "./Views/LoginView"
-
+import HomeView from "./Views/HomeView"
+ 
 function Routes () {
   return (
     <Fragment>
       <Route exact path="/">
-        <Redirect to="/register" />
+        <Redirect to="/login" />
       </Route>
       <Route exact path="/login" component={LoginView}/>
       <Route exact path="/register" component={RegisterView}/>
-      <Route exact path="/users" component={UserView}/>
+      <Route exact path="/home" component={HomeView} />
+      {/*<Route exact path="/users" component={UserView}/>*/}
     </Fragment>
   )
 }
